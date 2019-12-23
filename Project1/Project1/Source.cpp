@@ -10,20 +10,23 @@ void init(void)
 void draw(void)
 {
 	const double PI = 3.14159;
-	for (int j = 0; j < 100; j++) { // วาดวงกลม 3 วง
+	
+	// วงกลม 100 วง
+	for (int j = 0; j < 100; j++) {
 		double r = (rand() % 200 + 1.0)/100; // สุ่มขนาดรัศมี r [0.01,2]
 		double x0 = rand() % 17 - 8.0; // สุ่มจุดกำเนิด x [-8,8]
 		double y0 = rand() % 17 - 8.0; // สุ่มจุดกำเนิด y [-8,8]
 
+		// สุ่มสีของเส้นหรือพื้นวงกลม
 		double R = rand() % 101 / 100.0;
 		double G = rand() % 101 / 100.0;
 		double B = rand() % 101 / 100.0;
-		glColor3f(R, G, B); // สุ่มสีเส้น
+		glColor3f(R, G, B);
 
-		glBegin(GL_POLYGON);
-		for (int i = 1; i < 360; i++) { // วาดวงกลม
+		glBegin(GL_POLYGON); // โหมดวาดเส้นสีทึบ
+		// วาดวงกลม 1 วง
+		for (int i = 1; i < 360; i++) {
 			glVertex2f(x0 + r*cos(i*PI/180.0), y0 + r*sin(i*PI/180.0));
-			//glVertex2f(x0 + r*cos((i + 1)*PI/180.0), y0 + r*sin((i + 1)*PI/180.0));
 		}
 		glEnd();
 	}

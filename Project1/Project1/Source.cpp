@@ -10,9 +10,9 @@ void init(void)
 void draw(void)
 {
 	for (int j = 0; j < 3; j++) { // วาดวงกลม 3 วง
-		double r = rand() % 5 + 1; // สุ่มขนาดรัศมี r [1,5]
-		double x0 = rand() % 11 - 5; // สุ่มจุดกำเนิด x [-5,5]
-		double y0 = rand() % 11 - 5; // สุ่มจุดกำเนิด y [-5,5]
+		double r = rand() % 5 + 1.0; // สุ่มขนาดรัศมี r [1,5]
+		double x0 = rand() % 11 - 5.0; // สุ่มจุดกำเนิด x [-5,5]
+		double y0 = rand() % 11 - 5.0; // สุ่มจุดกำเนิด y [-5,5]
 
 		double R = rand() % 101 / 100.0;
 		double G = rand() % 101 / 100.0;
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA);
-	glutInitWindowSize(640, 480);
+	glutInitWindowSize(600, 600);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Test OpenGL");
 	glutDisplayFunc(display);

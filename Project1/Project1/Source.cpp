@@ -9,22 +9,23 @@ void init(void)
 
 void draw(void)
 {
-	for (int j = 0; j < 3; j++) { // วาดวงกลม 3 วง
-		double r = rand() % 5 + 1.0; // สุ่มขนาดรัศมี r [1,5]
-		double x0 = rand() % 11 - 5.0; // สุ่มจุดกำเนิด x [-5,5]
-		double y0 = rand() % 11 - 5.0; // สุ่มจุดกำเนิด y [-5,5]
+	const double PI = 3.14159;
+	for (int j = 0; j < 100; j++) { // วาดวงกลม 3 วง
+		double r = (rand() % 200 + 1.0)/100; // สุ่มขนาดรัศมี r [0.01,2]
+		double x0 = rand() % 17 - 8.0; // สุ่มจุดกำเนิด x [-8,8]
+		double y0 = rand() % 17 - 8.0; // สุ่มจุดกำเนิด y [-8,8]
 
 		double R = rand() % 101 / 100.0;
 		double G = rand() % 101 / 100.0;
 		double B = rand() % 101 / 100.0;
 		glColor3f(R, G, B); // สุ่มสีเส้น
 
+		glBegin(GL_POLYGON);
 		for (int i = 1; i < 360; i++) { // วาดวงกลม
-			glBegin(GL_LINE_STRIP);
-			glVertex2f(x0 + r*cos(i), y0 + r*sin(i));
-			glVertex2f(x0 + r*cos(i + 1.0), y0 + r*sin(i + 1.0));
-			glEnd();
+			glVertex2f(x0 + r*cos(i*PI/180.0), y0 + r*sin(i*PI/180.0));
+			//glVertex2f(x0 + r*cos((i + 1)*PI/180.0), y0 + r*sin((i + 1)*PI/180.0));
 		}
+		glEnd();
 	}
 }
 

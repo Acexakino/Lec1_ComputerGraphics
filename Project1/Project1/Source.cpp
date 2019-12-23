@@ -22,7 +22,7 @@ void draw(void)
 		for (int i = 1; i < 360; i++) { // วาดวงกลม
 			glBegin(GL_LINE_STRIP);
 			glVertex2f(x0 + r*cos(i), y0 + r*sin(i));
-			glVertex2f(x0 + r*cos(i + 1), y0 + r*sin(i + 1));
+			glVertex2f(x0 + r*cos(i + 1.0), y0 + r*sin(i + 1.0));
 			glEnd();
 		}
 	}
